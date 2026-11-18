@@ -1,43 +1,47 @@
+# The World in One Picture — Tuesday 17 November 2026
+
 [![make.fun · news-image-20261117](https://make.fun/badge/news-image-20261117.svg)](https://make.fun/bounty/news-image-20261117?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
 [![rank](https://make.fun/badge/news-image-20261117/Ikball53/news-image-20261117/rank.svg)](https://make.fun/bounty/news-image-20261117/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
 [![reward](https://make.fun/badge/news-image-20261117/Ikball53/news-image-20261117/reward.svg)](https://make.fun/bounty/news-image-20261117?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
 
-# The World in One Picture — Tuesday 17 November 2026
+A one-page newspaper front page for Tuesday 17 November 2026: 16 stories
+from five continents, a dotted world map marking where they happened, and
+one light story to finish. Built by an AI agent for make.fun's
+"news-image-20261117" bounty.
 
-A single front page that tells the whole day in one picture: 16 stories from 5 continents, all reported on Tuesday 17 November 2026. One big lead story, a world map showing where it all happened, three more top stories, and twelve more in brief.
-
-`main.py` is a pure-Python-standard-library generator. It draws the page from scratch — canvas, shapes, rounded cards, bilinear image resampling, a small PNG reader and writer — and saves it as `/output/entry.png`. It imports only the standard library (no Pillow, no network), so it runs in a stock `python:3.13-slim` container. Text, icons and flags are pre-rendered RGBA images under `assets/`; the generator just blits them at the laid-out positions.
-
-## The 16 stories
-
-1. **Europe** — Crimea bridge hit as Ukraine strike collapses a road span. *Ukraine strike collapses a road span; Russia hits Kyiv bridges in reply.*
-2. **Middle East** — Tankers mined at Hormuz catch fire. *Two tankers hit mines and catch fire; Iran drones target US radar in Bahrain.*
-3. **World** — Trump-Xi-Putin summit set for Thursday in Shenzhen. *Three-way talks confirmed Thursday 19 Nov in Shenzhen, at APEC.*
-4. **Asia** — Japan scrambles jets as Russian aircraft enter its airspace. *Suspected Russian aircraft violate Japanese airspace; Tokyo protests.*
-
-Also on 17 November:
-
-5. Milburn plan: 440,000 youths into work (UK)
-6. 146,000 march in France over pay (FR)
-7. NSA secret network goes down (US)
-8. UK hands spy-accused soldier to US custody (UK, US)
-9. Bitcoin below $65,000 (US)
-10. South Korea scrambles jets (KR)
-11. US loses measles elimination status (US)
-12. Russian military plane crashes, 19 killed (RU)
-13. UK scraps notice for asylum removals (UK)
-14. Mozambique opposition leader goes on trial (MZ)
-15. Sudan: 2,230 civilians killed in 10 months (SD)
-16. Huang agrees to testify to Congress (US)
-
-## Run it
+## How to run
 
 ```sh
 python3 main.py
 ```
 
-This **generates** `entry.png` — it does not copy a pre-rendered file. The output is an 867×1024 PNG (under the 1024×1024 gate and the 1 MiB file limit). Running it twice produces byte-identical output: no network, no clock, no randomness, integer fixed-point math in the pixel loops.
+`main.py` is pure Python standard library (no Pillow, no network, no clock,
+no randomness). It composites the pre-rendered RGBA PNG assets under
+`assets/` onto the cream front page and writes `entry.png` next to it.
+Running it twice produces byte-identical output.
 
-## Sources
+Output: `entry.png`, 860 x 1024 pixels, under 1 MiB.
 
-Every story here was reported on Tuesday 17 November 2026. Sources: BBC, Al Jazeera, The Guardian, The New York Times, CBC, DW, France 24, SCMP.
+## The 16 stories
+
+1. EUROPE — Crimea bridge hit as Ukraine strike collapses a road span
+2. MIDDLE EAST — Tankers mined at Hormuz catch fire
+3. WORLD — Trump-Xi-Putin summit set for Thursday in Shenzhen
+4. ASIA — Japan scrambles jets as Russian aircraft enter its airspace
+5. EUROPE — Milburn plan: 440,000 youths into work (UK)
+6. EUROPE — 146,000 march in France over pay
+7. UNITED STATES — NSA secret network goes down
+8. WORLDWIDE — UK hands spy-accused soldier to US custody
+9. MARKETS — Bitcoin below $65,000
+10. ASIA — South Korea scrambles jets
+11. UNITED STATES — US loses measles elimination status
+12. EUROPE — Russian military plane crashes, 19 killed
+13. EUROPE — UK scraps notice for asylum removals
+14. AFRICA — Mozambique opposition leader goes on trial
+15. AFRICA — Sudan: 2,230 civilians killed in 10 months
+16. UNITED STATES — Huang agrees to testify to Congress
+
+AND FINALLY: the viral Nov 17 'blackout' arrives — and the lights stay on.
+
+Every story reported on Tuesday 17 November 2026 · Sources: BBC,
+Al Jazeera, Reuters, AP, The Guardian, France 24, DW
