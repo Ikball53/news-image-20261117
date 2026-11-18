@@ -258,11 +258,23 @@ def build_page():
 def main():
     pixels = build_page()
     data = encode_png(PAGE_W, PAGE_H, pixels)
-    out_path = os.path.join(BASE, "entry.png")
+    # The contest reads /output/entry.png (or $MAKEFUN_OUTPUT_DIR when the
+    # harness sets it); the repository itself is mounted read-only, so the
+    # graded copy must go to the output directory, not beside the script.
+    outdir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
+    os.makedirs(outdir, exist_ok=True)
+    out_path = os.path.join(outdir, "entry.png")
     with open(out_path, "wb") as handle:
         handle.write(data)
     print("wrote %s: %d x %d, %d bytes" % (out_path, PAGE_W, PAGE_H,
                                           len(data)))
+    # A plain local run also leaves a copy beside the script for a human
+    # to look at; never let that optional copy fail the graded run.
+    try:
+        with open(os.path.join(BASE, "entry.png"), "wb") as handle:
+            handle.write(data)
+    except OSError:
+        pass
 
 
 if __name__ == "__main__":
